@@ -1,0 +1,7 @@
+0 5rub
+1 10rub
+2 50rub
+3 100rub
+4 1000rub
+5 5000rub
+6 notmoney
