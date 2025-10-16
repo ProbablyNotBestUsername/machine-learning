@@ -13,14 +13,19 @@ def main():
     tab1, tab2 = st.tabs(["Предсказание", "Руководство"])
 
     with tab1:
-        image = st.camera_input("Test")
-        if image is not None:
+        image_webcam = st.camera_input("Сделайте фото", key="camera")
+        if image_webcam is not None:
+            image = image_webcam
             st.image(image)
 
+        image_file = st.file_uploader("Или загрузите изображение", type=["png", "jpg", "jpeg"])
+        if image_file is not None:
+            image = image_file
+            st.image(image)
 
         if st.button('Предсказать'):
             if image is None:
-                st.error("Сделайте фото для предсказания.")
+                st.error("Сделайте или загрузите фото для предсказания.")
                 return
 
             data = {
